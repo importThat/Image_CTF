@@ -52,7 +52,7 @@ image1_array[mask]
 # You will notice that this flattens the array down to 1 dimension. np.any() and np.all() functions can instead be
 # used to retain the dimensionality of the data
 any_mask = np.any(image1_array > 100, axis=2)       # Returns a boolean mask showing where any RGBA value is > 100
-all_mask = np.any(image1_array > 100, axis=2)       # Returns a boolean mask showing where any RGBA value is > 100
+all_mask = np.all(image1_array > 100, axis=2)       # Returns a boolean mask showing where all RGBA values are > 100
 
 
 
