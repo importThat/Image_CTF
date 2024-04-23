@@ -11,6 +11,9 @@ image2 = Image.open("EncodedImage.png")
 # A transparency channel can be added to an image using the putalpha() method
 image1.putalpha(255)    # adds a transparency channel to an image and sets it to 255
 
+# Images can be viewed with the show method
+image1.show()
+
 # Image objects can be cast directly to numpy arrays so that their R,G,B,A values can be examined
 import numpy as np
 
@@ -34,12 +37,19 @@ image1_array[0, :, :]
 
 # Mathematical operations are applied to an entire array
 # To subtract [5, 5, 5, 5] from each of the elements in the array:
-image1_array - 5
+image1_array = image1_array - 5
 
 # Similarly, arrays can be added or subtracted to other arrays of the same shape
 ones = np.ones_like(image1_array)       # Create an array of ones in the same shape as the image1 array
-ones = ones * 50    # multiply each value in the array by 50
-image1_array - ones     # Subtract every element in the image1_array by 50
+fifties = ones * 50    # multiply each value in the array by 50
+image1_array = image1_array - fifties     # Subtract every element in the image1_array by 50
+
+# arrays can then be turned back into images with the Image.fromarray() method
+image1_changed = Image.fromarray(image1_array)
+# This can then be displayed on the screen
+image1_changed.show()
+# Note that because the values are of the type uint8, when we subtracted 50 from each value some overflowed
+# (or underflowed I guess!), so we ended up with some pretty crazy colours!
 
 # Arrays can also be tested, here we're testing to see whether every element in
 # the array is greater than 20
