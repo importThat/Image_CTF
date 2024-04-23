@@ -51,6 +51,9 @@ image1_changed.show()
 # Note that because the values are of the type uint8, when we subtracted 50 from each value some overflowed
 # (or underflowed I guess!), so we ended up with some pretty crazy colours!
 
+# Images can be saved with the Image.save() method
+image1_changed.save("test_image.png")
+
 # Arrays can also be tested, here we're testing to see whether every element in
 # the array is greater than 20
 image1_array > 20
